@@ -8,6 +8,7 @@ angular.module ('App.viewMain', ['ngRoute'])
   });
 }])
 .controller('viewMainCtrl', function( $scope, balance)  {
+  $scope.test = [2,1,1,1,1,1,1,1];
 	$scope.resultat = balance.testBoule($scope.test);
 })
 .factory ('balance', function () {
@@ -23,20 +24,20 @@ angular.module ('App.viewMain', ['ngRoute'])
 		var tab2;
 		var i = 0;
 		while (1){
-      console.log(tab);
+    //  console.log(tab);
     		if (tab.length % 2 !== 0){
     			tirage.push(nombre);
     		}
-      console.log(tab);
+      // console.log(tab);
 			tab1 = tab.slice(0, tab.length / 2);
 			tab2 =  tab.slice(tab.length / 2, tab.length);
 			poid1 = tab1.reduce((a, b)=> a + b, 0);
 			poid2 = tab2.reduce((a, b)=> a + b, 0);
 			i++;
 
-      console.log(tab);
-      console.log(poid1);
-      console.log(poid2);
+      // console.log(tab);
+      // console.log(poid1);
+      // console.log(poid2);
 			if (poid2 === poid1){
 				return 'Il n\'y pas de boule lourde. Ce résultat a été trouvé en ' + i + ' itérations.';
 			}else{

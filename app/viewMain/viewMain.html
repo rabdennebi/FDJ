@@ -1,3 +1,14 @@
-<p>This is the partial for view </p>
-
-{{resultat}}
+<div class="">
+  <div class="div-boule" ng-repeat="b in test track by $index">
+    <button class="boule" ng-init="activeVar = false" ng-click="activeVar=true" ng-class="active">{{b}}</button>
+  </div>
+  <div>
+    <button ng-click="">
+      Exécutere
+    </button>
+    <button ng-click="">
+      Reset
+    </button>
+  </div>
+  <p>{{resultat}}</p>
+</div>
