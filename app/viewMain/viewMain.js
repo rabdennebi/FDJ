@@ -8,8 +8,11 @@ angular.module ('App.viewMain', ['ngRoute'])
   });
 }])
 .controller('viewMainCtrl', function( $scope, balance)  {
-  $scope.test = [2,1,1,1,1,1,1,1];
-	$scope.resultat = balance.testBoule($scope.test);
+  $scope.test = [1,1,1,1,1,1,1,1];
+  $scope.resultat = function(yoo) {
+    console.log(yoo);
+        return balance.testBoule($scope.test);
+    };
 })
 .factory ('balance', function () {
 	var factory = {
@@ -24,7 +27,6 @@ angular.module ('App.viewMain', ['ngRoute'])
 		var tab2;
 		var i = 0;
 		while (1){
-    //  console.log(tab);
     		if (tab.length % 2 !== 0){
     			tirage.push(nombre);
     		}

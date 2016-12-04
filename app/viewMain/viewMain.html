@@ -1,6 +1,27 @@
 <div class="">
+  <div class="div-boule" ng-init="activeVar = false" ng-repeat="b in test track by $index">
+    <button class="boule"  ng-click="activeVar=!activeVar" ng-class="activeVar ? 'active':''">{{$index+1}}</button>
+  </div>
+  <div>
+    <button ng-click="resultat(test)">
+      Exécuter
+    </button>
+    <button ng-click="">
+      Reset
+    </button>
+  </div>
+  <p>{{resultat}}</p>
+</div>
+
+<!--
+
+<div class="">
+  <select ng-model="home">
+<option value="boule">boule</option>
+<option value="active">active</option>
+</select>
   <div class="div-boule" ng-repeat="b in test track by $index">
-    <button class="boule" ng-init="activeVar = false" ng-click="activeVar=true" ng-class="active">{{b}}</button>
+    <button  class="boule" ng-class="isActive">{{b}}</button>
   </div>
   <div>
     <button ng-click="">
@@ -11,4 +32,4 @@
     </button>
   </div>
   <p>{{resultat}}</p>
-</div>
+</div> -->
