@@ -38,6 +38,7 @@
   font-family: sans-serif;
   font-size: 12px;
   font-weight: bold;
+
 }
 .boule:hover{
   background-color: #27ae60;
@@ -47,4 +48,28 @@
 }
 .active:hover{
   background-color: #f1c40f;
+}
+.balance{
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.div-boule{
+  display: block;
+  margin:0% 25%;
+  text-align:center;
+  clear:both;
+}
+.div-image{
+ display: block;
+  margin: auto;
+ text-align:center;
+ clear:both;;
+}
+
+.div-boutton,.div-text{
+  display: block;
+   margin: auto;
+  text-align:center;
+  clear:both;
 }

@@ -1,16 +1,32 @@
 <div class="">
-  <div class="div-boule" ng-init="activeVar = false" ng-repeat="b in test track by $index">
-    <button class="boule"  ng-click="activeVar=!activeVar" ng-class="activeVar ? 'active':''">{{$index+1}}</button>
+  <!-- <div class="div-boule" ng-init="activeVar = false" ng-repeat="b in reset() track by $index">
+    <button name="{{$index}}" class="boule"  ng-click="activeVar=!activeVar"
+    ng-class="activeVar ? 'active':''">{{$index+1}}</button>
+  </div> -->
+  <div class="div-text">
+    <h1 class="text-center">Calculates Weight!!</h1>
+    <h3 class="text-center">This service will make it possible to find the heaviest ball </h3>
+    <p class="text-center">Choose a ball by clicking on it</p>
   </div>
-  <div>
-    <button ng-click="resultat(test)">
-      Exécuter
-    </button>
-    <button ng-click="">
-      Reset
-    </button>
+  <div class="div-boule" ng-init="boule()">
+    <div  ng-repeat="b in boules track by $index">
+      <button class="boule" ng-class="boules[$index] === 2 ? 'active':''" ng-click="active($index)">{{$index+1}}</button>
+    </div>
   </div>
-  <p>{{resultat}}</p>
+  <div class="div-image">
+    <img class="balance" src="viewMain/image/balance.jpg" alt="A balance image"/>
+  </div>
+  <div class="div-boutton">
+    <button ng-click="calcule()">
+        Exécuter
+      </button>
+      <button ng-click="reset()">
+        Reset
+      </button>
+  </div>
+  <div class="div-text">
+    <p>{{resultat}}</p>
+  </div>
 </div>
 
 <!--

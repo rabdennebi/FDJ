@@ -8,11 +8,20 @@ angular.module ('App.viewMain', ['ngRoute'])
   });
 }])
 .controller('viewMainCtrl', function( $scope, balance)  {
-  $scope.test = [1,1,1,1,1,1,1,1];
-  $scope.resultat = function(yoo) {
-    console.log(yoo);
-        return balance.testBoule($scope.test);
-    };
+  $scope.boule=function() {
+     $scope.boules=[1,1,1,1,1,1,1,1];
+  }
+  $scope.reset = function() {
+    $scope.boule();
+    $scope.resultat='';
+  }
+  $scope.active = function(position) {
+    $scope.boule();
+    $scope.boules[position]=2;
+  }
+  $scope.calcule = function() {
+    $scope.resultat= balance.testBoule($scope.boules);
+  };
 })
 .factory ('balance', function () {
 	var factory = {
@@ -21,38 +30,31 @@ angular.module ('App.viewMain', ['ngRoute'])
 	return factory;
 
 	function testBoule (tirage) {
-		const nombre=1;
+		const nombre = 1;
     var tab = tirage;
 		var tab1;
 		var tab2;
 		var i = 0;
 		while (1){
-    		if (tab.length % 2 !== 0){
-    			tirage.push(nombre);
-    		}
-      // console.log(tab);
+  		if (tab.length % 2 !== 0){
+  			return 'There is too much or not enough ball.'
+  		}
 			tab1 = tab.slice(0, tab.length / 2);
 			tab2 =  tab.slice(tab.length / 2, tab.length);
 			poid1 = tab1.reduce((a, b)=> a + b, 0);
 			poid2 = tab2.reduce((a, b)=> a + b, 0);
 			i++;
-
-      // console.log(tab);
-      // console.log(poid1);
-      // console.log(poid2);
 			if (poid2 === poid1){
-				return 'Il n\'y pas de boule lourde. Ce résultat a été trouvé en ' + i + ' itérations.';
-			}else{
+        return 'There is no heavy ball. This result was found in ' + i +' iterations.'
+      }else{
 				if(poid2 < poid1){
 					tab = tab1;
 				}else{
 					tab = tab2;
 				}
 				if (tab.length === 1){
-					//console.log('La boule la plus lourde est la numéro ' + (tirage.indexOf(parseInt(tab, 10)) + 1)
-					//+ '. Ce résultat a été trouvé en ' + i + ' itérations.');
-					return 'La boule la plus lourde est la numéro ' + (tirage.indexOf(parseInt(tab, 10)) + 1)
-					+ '. Ce résultat a été trouvé en ' + i + ' itérations.';
+          return 'The heaviest ball is number ' + (tirage.indexOf(parseInt(tab, 10)) + 1)
+					+ '. This result was found in ' + i + ' iterations.';
 				}
 			}
 		}
