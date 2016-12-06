@@ -1,2 +1,8 @@
 # projet FDJ
-p
+
+##test unitaire
+karma start
+
+## webserver (start application)
+https://www.mamp.info/en/
+http://www.wampserver.com/
